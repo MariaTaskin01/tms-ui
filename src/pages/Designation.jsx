@@ -3,7 +3,7 @@ import React from 'react';
 
 const Designation = () => {
     return (
-        <div>
+        <div className="h-screen max-w-7xl px-4 mx-auto">
             <h1>Designation Details</h1>
         </div>
     );

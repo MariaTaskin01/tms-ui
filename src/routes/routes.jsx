@@ -2,6 +2,9 @@ import {
     createBrowserRouter
   } from "react-router-dom";
 import App from "../App";
+import Dashboard from "../pages/Dashboard";
+import Designation from "../pages/Designation";
+import Teacher from "../pages/Teacher";
 
   const router = createBrowserRouter([
     {
@@ -9,12 +12,20 @@ import App from "../App";
       element: <App></App>, 
       children: [
         {
-          path: "/teacher",
-          element: <div>Teacher Details</div>
+          index : true,
+          element: <Dashboard></Dashboard>
+        },
+        {
+          path: "/dashboard",
+          element: <Dashboard></Dashboard>
         },
         {
           path: "/designation",
-          element: <div>Designation Details</div>
+          element: <Designation></Designation>
+        },
+        {
+          path: "/teacher",
+          element: <Teacher></Teacher>
         },
       ]
     },
