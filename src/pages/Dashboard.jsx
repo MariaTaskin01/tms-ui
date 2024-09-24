@@ -5,6 +5,7 @@ const Dashboard = () => {
     return (
         <div>
             <h1>Teacher Details</h1>
+            <p></p>
         </div>
     );
 };
