@@ -9,12 +9,12 @@ import App from "../App";
       element: <App></App>, 
       children: [
         {
-          path: "/home",
-          element: <div>Home</div>
+          path: "/teacher",
+          element: <div>Teacher Details</div>
         },
         {
-          path: "/about",
-          element: <div></div>
+          path: "/designation",
+          element: <div>Designation Details</div>
         },
       ]
     },
