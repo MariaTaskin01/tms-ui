@@ -142,6 +142,8 @@ const Teacher = () => {
         </div>
       </div>
     </div>
+    </div>
+
   );
 };
 

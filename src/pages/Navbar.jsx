@@ -11,6 +11,8 @@ const Navbar = () => {
           <li><Link to="/designation">Designation</Link></li> 
         </ul>
       </div>
+      </div>
+
   );
 };
 
