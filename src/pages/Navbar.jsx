@@ -4,14 +4,15 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
     return (
-        <div className="navbar bg-blue-200">
-      <div className="flex-none mx-auto">
-        <ul className="menu menu-horizontal px-1 font-serif font-extrabold text-red-900">
-          <li><Link to="/teacher">Teacher</Link></li>
-          <li><Link to="/designation">Designation</Link></li> 
-        </ul>
-      </div>
-      </div>
+      <div className="navbar bg-blue-200 flex justify-center font-mono text-fuchsia-950 text-2xl"> 
+      <div> 
+        <h1 className="text-4xl"> 
+        <Link to="/" className="btn btn-ghost text-xl"> 
+          TEACHER MANAGEMENT SYSTEM 
+        </Link>  
+        </h1> 
+      </div> 
+    </div> 
 
   );
 };

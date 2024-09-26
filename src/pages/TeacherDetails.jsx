@@ -8,7 +8,7 @@ const TeacherDetails = () => {
   );
 
   return (
-    <div className="m-2   ">
+    <div className="m-2 h-screen  ">
       <div>
         {" "}
         <p className="flex justify-center font-serif text-2xl p-4 m-2 text-blue-900 font-extrabold ">

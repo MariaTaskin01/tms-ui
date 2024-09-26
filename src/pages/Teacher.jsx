@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import useTeacherQuery from "../Hooks/useTeacherQuery";
 
 const Teacher = () => {
-
   const { postTeacher } = useTeacherQuery("http://localhost:8080/teacher");
 
   const [id, setId] = useState("");
@@ -30,8 +29,17 @@ const Teacher = () => {
       designationCode: designation,
       teacherName: name,
     };
-    console.log("Teacher Details",teacherInfo);
-    
+    setId("");
+    setCompany("");
+    setBCode("");
+    setFCode("");
+    setPCode("");
+    setCCode("");
+    setDesignation("");
+    setName("");
+
+    // console.log("Teacher Details",teacherInfo);
+
     postTeacher(teacherInfo);
   };
 
@@ -52,7 +60,14 @@ const Teacher = () => {
             placeholder="Enter Teacher ID"
             required
           ></input>
-
+          <label className="m-2"> Enter Teacher Name</label>
+          <input
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="border  m-2 w-full p-2  rounded-md"
+            type="text"
+            placeholder="Enter Teacher Name"
+          ></input>
           <label className="m-2"> Enter Company Code</label>
           <input
             value={company}
@@ -106,19 +121,13 @@ const Teacher = () => {
             type="text"
             placeholder="Enter Designation"
           ></input> */}
-            <select className="select select-primary border m-2 w-full p-2  rounded-md">
+          <select className="select select-primary border m-2 w-full p-2  rounded-md">
+            <option disabled selected>
+              {" "}
+              Select Designation Code{" "}
+            </option>
+          </select>
 
-                <option disabled selected> Select Designation Code </option>
-            </select>
-
-          <label className="m-2"> Enter Teacher Name</label>
-          <input
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            className="border  m-2 w-full p-2  rounded-md"
-            type="text"
-            placeholder="Enter Teacher Name"
-          ></input>
           <div className="col-span-4 flex justify-center mt-4 gap-6 ">
             <button
               onClick={handleSubmit}
@@ -135,15 +144,9 @@ const Teacher = () => {
               See Details
             </button>
           </div>
-    return (
-        <div className="h-screen max-w-7xl px-4 mx-auto">
-            <h1>Teacher Details</h1>
-            <p></p>
         </div>
       </div>
     </div>
-    </div>
-
   );
 };
 
