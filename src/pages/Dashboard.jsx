@@ -10,11 +10,13 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchCounts = async () => {
       try {
-        const teacherResponse = await axios.get("/teacher/count");
-        setTeacherCount(teacherResponse.data);
+        const teacherResponse = await axios.get("http://localhost:8080/teacher");
+        console.log(teacherResponse.data);
+        
+        setTeacherCount(teacherResponse.data.length);
 
-        const designationResponse = await axios.get("/designation/count");
-        setDesignationCount(designationResponse.data);
+        const designationResponse = await axios.get("http://localhost:8080/designation");
+        setDesignationCount(designationResponse.data.length);
       } catch (error) {
         console.error("Error fetching data: ", error);
       }
