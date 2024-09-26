@@ -4,6 +4,9 @@ import {
 import App from "../App";
 import Teacher from "../pages/Teacher";
 import TeacherDetails from "../pages/TeacherDetails";
+import Dashboard from "../pages/Dashboard";
+import Designation from "../pages/Designation";
+import Teacher from "../pages/Teacher";
 
   const router = createBrowserRouter([
     {
@@ -13,10 +16,20 @@ import TeacherDetails from "../pages/TeacherDetails";
         {
           path: "/teacher",
           element: <Teacher></Teacher>
+          index : true,
+          element: <Dashboard></Dashboard>
+        },
+        {
+          path: "/dashboard",
+          element: <Dashboard></Dashboard>
         },
         {
           path: "/designation",
-          element: <div>Designation Details</div>
+          element: <Designation></Designation>
+        },
+        {
+          path: "/teacher",
+          element: <Teacher></Teacher>
         },
         {
           path: "/TeacherDetails",

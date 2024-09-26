@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import useTeacherQuery from "../Hooks/useTeacherQuery";
 
 const Teacher = () => {
+
   const { postTeacher } = useTeacherQuery("http://localhost:8080/teacher");
 
   const [id, setId] = useState("");
@@ -134,6 +135,10 @@ const Teacher = () => {
               See Details
             </button>
           </div>
+    return (
+        <div className="h-screen max-w-7xl px-4 mx-auto">
+            <h1>Teacher Details</h1>
+            <p></p>
         </div>
       </div>
     </div>
