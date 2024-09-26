@@ -135,14 +135,11 @@ const Teacher = () => {
               See Details
             </button>
           </div>
-    return (
-        <div className="h-screen max-w-7xl px-4 mx-auto">
-            <h1>Teacher Details</h1>
-            <p></p>
-        </div>
       </div>
     </div>
+    </div>
   );
+  
 };
 
 export default Teacher;
