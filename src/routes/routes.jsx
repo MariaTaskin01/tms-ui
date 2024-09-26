@@ -2,6 +2,8 @@ import {
     createBrowserRouter
   } from "react-router-dom";
 import App from "../App";
+import Teacher from "../pages/Teacher";
+import TeacherDetails from "../pages/TeacherDetails";
 import Dashboard from "../pages/Dashboard";
 import Designation from "../pages/Designation";
 import Teacher from "../pages/Teacher";
@@ -12,6 +14,8 @@ import Teacher from "../pages/Teacher";
       element: <App></App>, 
       children: [
         {
+          path: "/teacher",
+          element: <Teacher></Teacher>
           index : true,
           element: <Dashboard></Dashboard>
         },
@@ -26,6 +30,10 @@ import Teacher from "../pages/Teacher";
         {
           path: "/teacher",
           element: <Teacher></Teacher>
+        },
+        {
+          path: "/TeacherDetails",
+          element: <TeacherDetails></TeacherDetails>
         },
       ]
     },
