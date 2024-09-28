@@ -30,7 +30,7 @@ const useDesignationQuery = (url) => {
         console.log("Designation", data);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [url, data]);
 
   // ------------------------>
 
@@ -45,7 +45,7 @@ const useDesignationQuery = (url) => {
       .then((response) => {
         console.log(response);
 
-        if (response.status == 200 && response.ok && response.data) {
+        if (response.status === 200 && response.ok && response.data) {
           setData([...data, payload]);
           toast.success("Designation added Successfully", { duration: 2000 });
           const newData = [...data, payload];
@@ -72,7 +72,7 @@ const useDesignationQuery = (url) => {
 
         if (response.status == 200 && response.ok) {
           const newdesignationDetail = data.filter(
-            (item) => item.desigCode !== id
+            (item) => item.id !== id
           );
           setData(newdesignationDetail);
           toast.success("Designation deleted Successfully", { duration: 2000 });
@@ -81,9 +81,9 @@ const useDesignationQuery = (url) => {
         }
       })
       .catch((response) => console.log(response))
-      .finally(setIsLoading(false));
+    //   .finally(setIsLoading(false));
 
-    return true;
+    // return true;
   };
 
   // ------------------------>

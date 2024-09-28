@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import useTeacherQuery from "../Hooks/useTeacherQuery";
 import { Trash, UserPen } from "lucide-react";
 import { toast } from "sonner";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const TeacherDetails = () => {
   const {  deleteTeacher, putTeacher, data } = useTeacherQuery(
@@ -14,6 +15,7 @@ const TeacherDetails = () => {
 
   const [showModal, setShowModal] = useState (false)
   const [updateDetail, setUpdateDetail] = useState(null);
+  const navigate = useNavigate();
 
   // const handleDelete = (p) => {
   //   deleteTeacher(p);
@@ -42,6 +44,10 @@ const TeacherDetails = () => {
         teacherName: ""
       });
     }
+  };
+
+  const seeDashboard = () => {
+    navigate("/Dashboard");
   };
 
   return (
@@ -307,10 +313,9 @@ const TeacherDetails = () => {
           </table>
             
             <div>
-            <button
+            <button onClick={seeDashboard}
             className="bg-white hover:bg-gray-100 text-gray-800 justify-end font-semibold py-2 px-4 border border-gray-400 rounded shadow p-2 m-2"
             type="Back"
-            onClick={handleUpdate}
             >
             Back
             </button>
