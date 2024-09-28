@@ -27,7 +27,7 @@ const useTeacherQuery = (url) => {
       .then((response) => response.json())
       .then((response) => setData(response))
       .catch((err) => console.log(err));
-  }, [url, data]);
+  }, [url]);
 
   // ------------------------>
 
@@ -73,7 +73,7 @@ const useTeacherQuery = (url) => {
         console.log(response);
 
         if (response.status === 200 && response.ok) {
-          const newTeacherDetail = data.filter((item) => item.id !== id);
+          const newTeacherDetail = data.filter((item) => item.teacherId !== id);
           setData(newTeacherDetail);
           toast.success("Teacher deleted Successfully", { duration: 2000 });
         } else {

@@ -14,8 +14,8 @@ const Designation = () => {
 
     const handleSubmit = () => {
         const designation = {
-            designationCode: desigCode,
-            designationDescription: desigDesc,
+            desigCode: desigCode,
+            desigDesc: desigDesc,
             insUser: insUser,
         };
 
