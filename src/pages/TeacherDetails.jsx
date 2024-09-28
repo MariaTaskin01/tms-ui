@@ -8,7 +8,7 @@ const TeacherDetails = () => {
   );
 
   return (
-    <div className="m-2   ">
+    <div className="m-2 h-screen  ">
       <div>
         {" "}
         <p className="flex justify-center font-serif text-2xl p-4 m-2 text-blue-900 font-extrabold ">
@@ -16,7 +16,7 @@ const TeacherDetails = () => {
         </p>
       </div>
 
-      <div className="m-2 flex justify center"> 
+      <div className="m-2 flex justify-center"> 
         <div>
         <table className="font-serif  border-collapse border border-slate-500">
           <thead>
