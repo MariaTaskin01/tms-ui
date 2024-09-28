@@ -31,7 +31,6 @@ const useDesignationQuery = (url) => {
       })
       .catch((err) => console.log(err));
   }, [url]);
-  }, [url]);
 
   // ------------------------>
 
@@ -70,7 +69,6 @@ const useDesignationQuery = (url) => {
 
         if (response.status === 200 && response.ok) {
           const newdesignationDetail = data.filter(
-            (item) => item.desigCode !== id
             (item) => item.desigCode !== id
           );
           setData(newdesignationDetail);
