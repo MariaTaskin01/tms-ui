@@ -2,9 +2,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useTeacherQuery from "../Hooks/useTeacherQuery";
+import useDesignationQuery from "../Hooks/useDesignationQuery";
 
 const Teacher = () => {
   const { postTeacher } = useTeacherQuery("http://localhost:8080/teacher");
+  const { data } = useDesignationQuery("http://localhost:8080/designation");
 
   const [id, setId] = useState("");
   const [company, setCompany] = useState("");
@@ -46,9 +48,13 @@ const Teacher = () => {
   const handleSee = () => {
     navigate("/TeacherDetails");
   };
+  const handleSelect = (e) =>{
+    const selectedDesignation = e
+    console.log("Selected Designation:", selectedDesignation);
+  }
 
   return (
-    <div className=" h-screen flex  align-items justify-center  bg-slate-50">
+    <div className=" min-h-screen flex  align-items justify-center  bg-slate-50">
       <div>
         <div className="grid grid-cols-4 gap-x-6 font-normal m-4 ">
           <label className="font-semibold m-6"> Enter Teacher ID</label>
@@ -121,12 +127,22 @@ const Teacher = () => {
             type="text"
             placeholder="Enter Designation"
           ></input> */}
-          <select className="select select-primary border m-2 w-full p-2  rounded-md">
-            <option disabled selected>
-              {" "}
-              Select Designation Code{" "}
-            </option>
-          </select>
+
+          <div>
+           
+               <select onChange={(e)=>setDesignation(e.target.value)} className="select select-primary border m-2 w-full p-2  rounded-md">
+                <option disabled selected> Select Designation </option>
+                {  data.map((item,index)=>(
+               <option value={item.desigCode} key={index}>
+                 {item.desigDesc}
+               </option>
+               ))
+               }
+             </select>
+            
+             
+            
+          </div>
 
           <div className="col-span-4 flex justify-center mt-4 gap-6 ">
             <button
@@ -144,11 +160,10 @@ const Teacher = () => {
               See Details
             </button>
           </div>
+        </div>
       </div>
     </div>
-    </div>
   );
-  
 };
 
 export default Teacher;

@@ -9,6 +9,9 @@ const TeacherDetails = () => {
     "http://localhost:8080/teacher"
   );
 
+  console.log(data);
+  
+
   const [showModal, setShowModal] = useState (false)
   const [updateDetail, setUpdateDetail] = useState(null);
 
@@ -85,7 +88,7 @@ const TeacherDetails = () => {
                 </th>
                 <th className="bg-blue-100 border border-slate-600 px-4 py-2">
                   {" "}
-                  Designation Code{" "}
+                  Designation Name{" "}
                 </th>
                 <th className="bg-blue-100 border border-slate-600 px-4 py-2">
                   {" "}
@@ -123,7 +126,7 @@ const TeacherDetails = () => {
                   {info.componentCode}
                 </td>
                 <td className="border border-slate-600 px-4 py-2">
-                  {info.designationCode}
+                  {info.designationName}
                 </td>
                 <td className="border border-slate-600 px-4 py-2">
                   {info.teacherName}
