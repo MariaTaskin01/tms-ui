@@ -79,7 +79,7 @@ const seeDashboard = () => {
                     </label>
 
                     <button
-                      onClick={() => deleteDesignation(item.desigCode)}
+                      onClick={() => deleteDesignation(item?.desigCode)}
                       className="bg-red-500 py-2 px-4 border rounded shadow p-2 m-2"
                     >
                       <Trash />
