@@ -48,19 +48,19 @@ const Teacher = () => {
   };
 
   return (
-    <div className=" h-screen flex  align-items justify-center  bg-cyan-50">
+    <div className=" h-screen flex  align-items justify-center  bg-slate-50">
       <div>
-        <div className="grid grid-cols-4 gap-x-6 font-serif m-4 ">
-          <label className="m-2"> Enter Teacher ID</label>
+        <div className="grid grid-cols-4 gap-x-6 font-normal m-4 ">
+          <label className="font-semibold m-6"> Enter Teacher ID</label>
           <input
             value={id}
             onChange={(e) => setId(e.target.value)}
-            className="border m-2 w-full p-2  rounded-md "
+            className="border m-3 w-full p-2  rounded-md "
             type="text"
             placeholder="Enter Teacher ID"
             required
           ></input>
-          <label className="m-2"> Enter Teacher Name</label>
+          <label className="font-semibold m-6"> Teacher Name</label>
           <input
             value={name}
             onChange={(e) => setName(e.target.value)}
@@ -68,7 +68,7 @@ const Teacher = () => {
             type="text"
             placeholder="Enter Teacher Name"
           ></input>
-          <label className="m-2"> Enter Company Code</label>
+          <label className="font-semibold m-6">Company Code</label>
           <input
             value={company}
             onChange={(e) => setCompany(e.target.value)}
@@ -77,7 +77,7 @@ const Teacher = () => {
             placeholder="Enter Company Code"
           ></input>
 
-          <label className="m-2"> Enter Company Branch Code</label>
+          <label className="font-semibold m-6">Company Branch Code</label>
           <input
             value={bCode}
             onChange={(e) => setBCode(e.target.value)}
@@ -86,7 +86,7 @@ const Teacher = () => {
             placeholder="Enter Company Branch Code"
           ></input>
 
-          <label className="m-2"> Enter Finance Code </label>
+          <label className="font-semibold m-6">Finance Code </label>
           <input
             value={fCode}
             onChange={(e) => setFCode(e.target.value)}
@@ -95,7 +95,7 @@ const Teacher = () => {
             placeholder="Enter Finance Code"
           ></input>
 
-          <label className="m-2"> Enter Project Code</label>
+          <label className="font-semibold m-6">Project Code</label>
           <input
             value={pCode}
             onChange={(e) => setPCode(e.target.value)}
@@ -104,7 +104,7 @@ const Teacher = () => {
             placeholder="Enter Project Code"
           ></input>
 
-          <label className="m-2"> Enter Component Code</label>
+          <label className="font-semibold m-6">Component Code</label>
           <input
             value={cCode}
             onChange={(e) => setCCode(e.target.value)}
@@ -113,7 +113,7 @@ const Teacher = () => {
             placeholder="Enter Component Code"
           ></input>
 
-          <label className="m-2"> Enter Designation</label>
+          <label className="font-semibold m-6">Designation</label>
           {/* <input
             value={designation}
             onChange={(e) => setDesignation(e.target.value)}

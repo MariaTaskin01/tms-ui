@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className="navbar bg-blue-200 flex justify-center">
+    <div className="navbar bg-blue-300 flex justify-center">
       <div>
         <h1>
         <Link to="/" className="btn btn-ghost text-xl">

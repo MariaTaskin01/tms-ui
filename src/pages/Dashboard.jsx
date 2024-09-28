@@ -10,25 +10,28 @@ const Dashboard = () => {
 
   const navigate = useNavigate();
 
-  const seeDesignation = () => {};
+  const seeDesignation = () => {
+    navigate("/DesignationDetails")
+  };
   const seeTeacher = () => {
     navigate("/TeacherDetails");
   };
-  const addDesignation = () => {};
+  const addDesignation = () => {
+    navigate("/Designation")
+  };
   const addTeacher = () => {
     navigate("/Teacher");
   };
 
   useEffect(() => {
+    
     const fetchCounts = async () => {
       
       try {
         const teacherResponse = await axios.get("http://localhost:8080/teacher");
         setTeacherCount(teacherResponse.data.length);
 
-        const designationResponse = await axios.get(
-          "http://localhost:8080/designation"
-        );
+        const designationResponse = await axios.get("http://localhost:8080/designation");
         setDesignationCount(designationResponse.data.length);
 
       } catch (error) {
@@ -39,8 +42,16 @@ const Dashboard = () => {
     fetchCounts();
   }, []);
 
+  const backgroundStyle = {
+    backgroundImage: `url('https://img.freepik.com/free-vector/modern-abstract-white-minimal-background_84443-8363.jpg')`,
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+    minHeight: '100vh',
+  };
+
   return (
-    <div className="h-screen max-w-8xl mx-auto flex justify-center space-x-5 p-6">
+    <div style={backgroundStyle} className="h-screen flex justify-center space-x-5 p-6">
       <div className="w-1/2 p-2">
         <div className="relative w-full h-70 rounded-lg overflow-hidden">
           <img
