@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import useTeacherQuery from "../Hooks/useTeacherQuery";
 import { Trash, UserPen } from "lucide-react";
 import { toast } from "sonner";
+import { Navigate, useNavigate } from "react-router-dom";
+
 import useDesignationQuery from "../Hooks/useDesignationQuery";
 
 const TeacherDetails = () => {
@@ -18,6 +20,7 @@ const TeacherDetails = () => {
 
   const [showModal, setShowModal] = useState(false);
   const [updateDetail, setUpdateDetail] = useState(null);
+  const navigate = useNavigate();
 
   // const handleDelete = (p) => {
   //   deleteTeacher(p);
@@ -47,6 +50,10 @@ const TeacherDetails = () => {
         DesignationName: "",
       });
     }
+  };
+
+  const seeDashboard = () => {
+    navigate("/Dashboard");
   };
 
   return (
@@ -166,24 +173,6 @@ const TeacherDetails = () => {
                           {/* ------------------------------- */}
 
                           <div className="p-6 flex-col justify-center">
-                            {/* <label
-                              className="block text-gray-700 font-bold mb-2"
-                              htmlFor="teacherId"
-                            >
-                              Teacher ID
-                            </label>
-                            <input
-                              onChange={(e) =>
-                                setUpdateDetail({
-                                  ...updateDetail,
-                                  teacherId: e.target.value,
-                                })
-                              }
-                              value={updateDetail.teacherId}
-                              className="input input-bordered input-primary w-full max-w-xs p-2 m-2"
-                              type="text"
-                              placeholder="Enter Your Teacher ID"
-                            /> */}
 
                             <label
                               className="block text-gray-700 font-bold mb-2"
@@ -349,6 +338,17 @@ const TeacherDetails = () => {
               </tbody>
             ))}
           </table>
+            
+            <div>
+            <button onClick={seeDashboard}
+            className="bg-white hover:bg-gray-100 text-gray-800 justify-end font-semibold py-2 px-4 border border-gray-400 rounded shadow p-2 m-2"
+            type="Back"
+            >
+            Back
+            </button>
+            </div>
+
+
         </div>
       </div>
     </div>
