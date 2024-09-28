@@ -27,7 +27,7 @@ const useTeacherQuery = (url) => {
     .then((response) => response.json())
     .then((response) => setData(response))
     .catch((err) => console.log(err));
-}, [url]);
+}, [url,data]);
 
 // ------------------------>
 

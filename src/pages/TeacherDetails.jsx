@@ -160,24 +160,6 @@ const TeacherDetails = () => {
                   {/* ------------------------------- */}
 
                           <div className="p-6 flex-col justify-center">
-                            {/* <label
-                              className="block text-gray-700 font-bold mb-2"
-                              htmlFor="teacherId"
-                            >
-                              Teacher ID
-                            </label>
-                            <input
-                              onChange={(e) =>
-                                setUpdateDetail({
-                                  ...updateDetail,
-                                  teacherId: e.target.value,
-                                })
-                              }
-                              value={updateDetail.teacherId}
-                              className="input input-bordered input-primary w-full max-w-xs p-2 m-2"
-                              type="text"
-                              placeholder="Enter Your Teacher ID"
-                            /> */}
 
                             <label
                               className="block text-gray-700 font-bold mb-2"
@@ -320,6 +302,18 @@ const TeacherDetails = () => {
               </tbody>
             ))}
           </table>
+            
+            <div>
+            <button
+            className="bg-white hover:bg-gray-100 text-gray-800 justify-end font-semibold py-2 px-4 border border-gray-400 rounded shadow p-2 m-2"
+            type="Back"
+            onClick={handleUpdate}
+            >
+            Back
+            </button>
+            </div>
+
+
         </div>
       </div>
     </div>

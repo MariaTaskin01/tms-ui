@@ -3,9 +3,6 @@ import React from 'react';
 
 const DesignationDetails = () => {
 
-
-
-
     return (
         <div className="m-2 h-screen ">
         <div>

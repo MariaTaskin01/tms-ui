@@ -7,21 +7,6 @@ const useDesignationQuery = (url) => {
 const [data, setData] = useState([]);
 const [isLoading, setIsLoading] = useState(true);
 
-// useEffect(() => {
-//     axios
-//     .get("http://localhost:8080/designation")
-//     .then(function(response) {
-//         setData(response.data);
-//     })    
-//     .catch(function (error) {
-//         console.log(error);
-        
-//     }) 
-//     .finally(function () {
-//     });
-
-// }, [url]);
-
 useEffect(() => {
     fetch(url)
     .then((response) => response.json())
