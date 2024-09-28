@@ -168,7 +168,7 @@ const seeDashboard = () => {
           <div>
             <button onClick={seeDashboard}
             className=" bg-slate-300 hover:bg-gray-100 text-gray-800 font-semibold py-3 px-6 border border-gray-400 rounded shadow p-2 m-2"
-            type="Back"
+            type="Back" 
             >
             Back
             </button>
