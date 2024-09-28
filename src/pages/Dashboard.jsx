@@ -10,11 +10,15 @@ const Dashboard = () => {
 
   const navigate = useNavigate();
 
-  const seeDesignation = () => {};
+  const seeDesignation = () => {
+    navigate('/DesignationDetails')
+  };
   const seeTeacher = () => {
     navigate("/TeacherDetails");
   };
-  const addDesignation = () => {};
+  const addDesignation = () => {
+    navigate ('/designation')
+  };
   const addTeacher = () => {
     navigate("/Teacher");
   };

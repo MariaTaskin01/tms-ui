@@ -16,7 +16,7 @@ const TeacherDetails = () => {
         </p>
       </div>
 
-      <div className="m-2 flex justify center"> 
+      <div className="m-2 flex justify-center"> 
         <div>
         <table className="font-serif  border-collapse border border-slate-500">
           <thead>
