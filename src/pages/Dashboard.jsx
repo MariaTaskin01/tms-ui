@@ -1,5 +1,5 @@
-/* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
+
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -11,32 +11,29 @@ const Dashboard = () => {
   const navigate = useNavigate();
 
   const seeDesignation = () => {
-    navigate('/DesignationDetails')
+    navigate("/DesignationDetails")
   };
   const seeTeacher = () => {
     navigate("/TeacherDetails");
   };
   const addDesignation = () => {
-    navigate ('/designation')
+    navigate("/Designation")
   };
   const addTeacher = () => {
     navigate("/Teacher");
   };
 
   useEffect(() => {
+    
     const fetchCounts = async () => {
+      
       try {
-        const teacherResponse = await axios.get(
-          "http://localhost:8080/teacher"
-        );
-        console.log(teacherResponse.data);
-
+        const teacherResponse = await axios.get("http://localhost:8080/teacher");
         setTeacherCount(teacherResponse.data.length);
 
-        const designationResponse = await axios.get(
-          "http://localhost:8080/designation"
-        );
+        const designationResponse = await axios.get("http://localhost:8080/designation");
         setDesignationCount(designationResponse.data.length);
+
       } catch (error) {
         console.error("Error fetching data: ", error);
       }
@@ -45,8 +42,16 @@ const Dashboard = () => {
     fetchCounts();
   }, []);
 
+  const backgroundStyle = {
+    backgroundImage: `url('https://img.freepik.com/free-vector/modern-abstract-white-minimal-background_84443-8363.jpg')`,
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+    minHeight: '100vh',
+  };
+
   return (
-    <div className="h-screen max-w-8xl mx-auto flex justify-center space-x-5 p-6">
+    <div style={backgroundStyle} className="h-screen flex justify-center space-x-5 p-6">
       <div className="w-1/2 p-2">
         <div className="relative w-full h-70 rounded-lg overflow-hidden">
           <img
