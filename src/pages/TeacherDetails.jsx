@@ -6,14 +6,17 @@ import { toast } from "sonner";
 import { Navigate, useNavigate } from "react-router-dom";
 
 const TeacherDetails = () => {
-  const {  deleteTeacher, putTeacher, data } = useTeacherQuery(
-    "http://localhost:8080/teacher"
+  const {
+    deleteTeacher,
+    putTeacher,
+    data: teacherInfo,
+  } = useTeacherQuery("http://localhost:8080/teacher");
+  const { data: desigInfo } = useDesignationQuery(
+    "http://localhost:8080/designation"
   );
+  console.log(teacherInfo);
 
-  console.log(data);
-  
-
-  const [showModal, setShowModal] = useState (false)
+  const [showModal, setShowModal] = useState(false);
   const [updateDetail, setUpdateDetail] = useState(null);
   const navigate = useNavigate();
 
@@ -30,10 +33,10 @@ const TeacherDetails = () => {
     p.preventDefault();
 
     const flag = putTeacher(updateDetail);
-
+    setShowModal(false);
     if (flag) {
       toast.success("Successfully Added");
-      setShowModal(false);
+     
       setUpdateDetail({
         teacherId: "",
         companyCode: "",
@@ -41,7 +44,8 @@ const TeacherDetails = () => {
         financeCode: "",
         projectCode: "",
         componentCode: "",
-        teacherName: ""
+        teacherName: "",
+        DesignationName: "",
       });
     }
   };
@@ -107,8 +111,7 @@ const TeacherDetails = () => {
               </tr>
             </thead>
 
-
-            {data?.map((info, index) => (
+            {teacherInfo?.map((info, index) => (
               <tbody key={index}>
                 <td className="border border-slate-600 px-4 py-2">
                   {index + 1}
@@ -165,8 +168,7 @@ const TeacherDetails = () => {
                       />
                       <div className="modal" role="dialog">
                         <div className="modal-box">
-                  
-                  {/* ------------------------------- */}
+                          {/* ------------------------------- */}
 
                           <div className="p-6 flex-col justify-center">
 
@@ -266,6 +268,29 @@ const TeacherDetails = () => {
                               type="text"
                               placeholder="Enter Component Code"
                             />
+
+                            <label className="block text-gray-700 font-bold mb-2">
+                              {" "}
+                              Designation Name{" "}
+                            </label>
+                            <select
+                              onChange={(e) =>
+                                setUpdateDetail({
+                                  ...updateDetail,
+                                  designationCode: e.target.value, 
+                                })
+                              }
+                              className="select select-primary border m-2 w-full p-2 rounded-md"
+                            >
+                              <option disabled selected>
+                                Select Designation
+                              </option>
+                              {desigInfo.map((item, index) => (
+                                <option value={item.desigCode} key={index}>
+                                  {item.desigDesc}
+                                </option>
+                              ))}
+                            </select>
 
                             <label
                               className="block text-gray-700 font-bold mb-2"
