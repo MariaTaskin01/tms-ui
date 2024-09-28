@@ -4,6 +4,8 @@ import useTeacherQuery from "../Hooks/useTeacherQuery";
 import { Trash, UserPen } from "lucide-react";
 import { toast } from "sonner";
 import { Navigate, useNavigate } from "react-router-dom";
+import useDesignationQuery from "../Hooks/useDesignationQuery";
+
 
 const TeacherDetails = () => {
   const {
