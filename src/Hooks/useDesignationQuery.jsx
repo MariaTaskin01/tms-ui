@@ -1,106 +1,122 @@
 /* eslint-disable no-unused-vars */
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { toast } from 'sonner';
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { toast } from "sonner";
 
 const useDesignationQuery = (url) => {
-const [data, setData] = useState([]);
-const [isLoading, setIsLoading] = useState(true);
+  const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-useEffect(() => {
+  // useEffect(() => {
+  //     axios
+  //     .get("http://localhost:8080/designation")
+  //     .then(function(response) {
+  //         setData(response.data);
+  //     })
+  //     .catch(function (error) {
+  //         console.log(error);
+
+  //     })
+  //     .finally(function () {
+  //     });
+
+  // }, [url]);
+
+  useEffect(() => {
     fetch(url)
-    .then((response) => response.json())
-    .then((response) => setData(response))
-    .catch((err) => console.log(err));
-}, []);
+      .then((response) => response.json())
+      .then((response) => {
+        setData(response);
+        console.log("Designation", data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
-// ------------------------>
+  // ------------------------>
 
-const postDesignation = (payload) => {
-
-    fetch (url, {
-        method: "POST",
-        headers: {
-            "content-type" : "application/json",
-        },
-        body: JSON.stringify(payload),
+  const postDesignation = (payload) => {
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(payload),
     })
-
-    .then((response) => {
+      .then((response) => {
         console.log(response);
 
         if (response.status == 200 && response.ok && response.data) {
-            setData([...data, payload]);
-            toast.success("Designation added Successfully",
-                 { duration: 2000 });
-            const newData = [...data, payload];
-            setData(newData);
+          setData([...data, payload]);
+          toast.success("Designation added Successfully", { duration: 2000 });
+          const newData = [...data, payload];
+          setData(newData);
         } else {
-            toast.error("Action Failed");
-        } 
-    })
-    .catch((response) => console.log(response))
-    .finally(setIsLoading(false));
+          toast.error("Action Failed");
+        }
+      })
+      .catch((response) => console.log(response))
+      .finally(setIsLoading(false));
 
     return true;
-};
+  };
 
-// ------------------------>
+  // ------------------------>
 
-const deleteDesignation = (id) => {
+  const deleteDesignation = (id) => {
     const urlpath = url + "/" + id;
     fetch(urlpath, {
-        method: "DELETE",
+      method: "DELETE",
     })
-    .then((response) => {
+      .then((response) => {
         console.log(response);
 
         if (response.status == 200 && response.ok) {
-            const newdesignationDetail = data.filter((item) => item.desigCode !== id);
-            setData(newdesignationDetail);
-            toast.success("Designation deleted Successfully",
-                 { duration: 2000 });
+          const newdesignationDetail = data.filter(
+            (item) => item.desigCode !== id
+          );
+          setData(newdesignationDetail);
+          toast.success("Designation deleted Successfully", { duration: 2000 });
         } else {
-            toast.error("Action Failed");
-        }  
-    })
-    .catch((response) => console.log(response))
-    .finally(setIsLoading(false));
+          toast.error("Action Failed");
+        }
+      })
+      .catch((response) => console.log(response))
+      .finally(setIsLoading(false));
 
     return true;
-};
+  };
 
-// ------------------------>
+  // ------------------------>
 
-const putDesignation = (payload) => {
+  const putDesignation = (payload) => {
     const urlpath = url + "/" + payload.desigCode;
     fetch(urlpath, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(payload),
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
     })
-    .then((response) => {
+      .then((response) => {
         console.log(response);
 
         if (response.status == 200 && response.ok) {
-            const updatedDesignationDetail = data.map((item) => item.desigCode === payload.desigCode ? payload : item)
-            setData(updatedDesignationDetail);
-            toast.success("Designation updated Successfully",
-                 { duration: 2000 });
+          const updatedDesignationDetail = data.map((item) =>
+            item.desigCode === payload.desigCode ? payload : item
+          );
+          setData(updatedDesignationDetail);
+          toast.success("Designation updated Successfully", { duration: 2000 });
         } else {
-            toast.error("Action Failed");
-        }  
-    })
-    .catch((response) => console.log(response))
-    .finally(setIsLoading(false));
+          toast.error("Action Failed");
+        }
+      })
+      .catch((response) => console.log(response))
+      .finally(setIsLoading(false));
 
     return true;
-};
+  };
 
-
-    return {data, deleteDesignation, postDesignation, putDesignation};
+  return { data, deleteDesignation, postDesignation, putDesignation };
 };
 
 export default useDesignationQuery;
