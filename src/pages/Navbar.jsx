@@ -10,13 +10,13 @@ const Navbar = () => {
           TEACHER MANAGEMENT SYSTEM
         </Link>
       </div>
-      {/* <div className="flex-none mx-auto">
+      <div className="flex-none mx-auto">
         <ul className="menu menu-horizontal px-1">
           <li><Link to="/dashboard">Dashboard</Link></li>
         <li><Link to="/designation">Designation</Link></li> 
         <li><Link to="/teacher">Teacher</Link></li>
         </ul>
-      </div> */}
+      </div>
     </div>
   );
 };

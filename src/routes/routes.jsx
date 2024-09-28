@@ -22,6 +22,7 @@ import Teacher from "../pages/Teacher";
         {
           path: "/designation",
           element: <Designation></Designation>
+          // element: <div>Desig</div>
         },
         {
           path: "/teacher",
