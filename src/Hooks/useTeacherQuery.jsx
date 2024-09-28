@@ -24,6 +24,10 @@ const useTeacherQuery = (url) => {
 
   useEffect(() => {
     fetch(url)
+      .then((response) => response.json())
+      .then((response) => setData(response))
+      .catch((err) => console.log(err));
+  }, [url]);
     .then((response) => response.json())
     .then((response) => setData(response))
     .catch((err) => console.log(err));

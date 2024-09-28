@@ -31,6 +31,7 @@ const useDesignationQuery = (url) => {
       })
       .catch((err) => console.log(err));
   }, [url]);
+  }, [url]);
 
   // ------------------------>
 
@@ -60,15 +61,16 @@ const useDesignationQuery = (url) => {
   // ------------------------>
 
   const deleteDesignation = (id) => {
-    const urlpath = url + "/" + id;
+    const urlpath = `${url}/${id}`;
     fetch(urlpath, {
       method: "DELETE",
     })
       .then((response) => {
         console.log(response);
 
-        if (response.status == 200 && response.ok) {
+        if (response.status === 200 && response.ok) {
           const newdesignationDetail = data.filter(
+            (item) => item.desigCode !== id
             (item) => item.desigCode !== id
           );
           setData(newdesignationDetail);
@@ -108,7 +110,7 @@ const useDesignationQuery = (url) => {
         }
       })
       .catch((response) => console.log(response))
-      .finally(setIsLoading(false));
+      .finally(() => setIsLoading(false)); 
 
     return true;
   };
