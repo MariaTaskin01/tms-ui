@@ -35,42 +35,39 @@ const useDesignationQuery = (url) => {
   // ------------------------>
 
   const postDesignation = (payload) => {
-    fetch(url, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(payload),
+    console.log(payload);
+    
+    axios
+    .post(url, payload)
+    .then((response) => {
+      console.log(response);
+
+      if (response.status === 200) {
+        setData([...data, payload]);
+        toast.success("Teacher Added Successfully", { duration: 2000 });
+        const newData = [...data, payload];
+        setData(newData);
+      } else {
+        toast.error("Action Failed");
+      }
     })
-      .then((response) => {
-        console.log(response);
+    .catch((response) => console.log(response))
+    .finally(() => setIsLoading(false));
 
-        if (response.status === 200 && response.ok && response.data) {
-          setData([...data, payload]);
-          toast.success("Designation added Successfully", { duration: 2000 });
-          const newData = [...data, payload];
-          setData(newData);
-        } else {
-          toast.error("Action Failed");
-        }
-      })
-      .catch((response) => console.log(response))
-      .finally(setIsLoading(false));
-
-    return true;
-  };
+  return true;
+};
 
   // ------------------------>
 
   const deleteDesignation = (id) => {
-    const urlpath =`${url}/${id}`;
+    const urlpath = `${url}/${id}`;
     fetch(urlpath, {
       method: "DELETE",
     })
       .then((response) => {
         console.log(response);
 
-        if (response.status == 200 && response.ok) {
+        if (response.status === 200 && response.ok) {
           const newdesignationDetail = data.filter(
             (item) => item.desigCode !== id
           );
@@ -111,7 +108,7 @@ const useDesignationQuery = (url) => {
         }
       })
       .catch((response) => console.log(response))
-      .finally(setIsLoading(false));
+      .finally(() => setIsLoading(false)); 
 
     return true;
   };

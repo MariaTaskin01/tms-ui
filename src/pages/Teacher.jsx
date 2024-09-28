@@ -134,7 +134,7 @@ const Teacher = () => {
               onChange={(e) => setDesignation(e.target.value)}
               className="select select-primary border m-2 w-full p-2  rounded-md"
             >
-              <option disabled selected>
+              <option value="" disabled selected>
                 {" "}
                 Select Designation{" "}
               </option>

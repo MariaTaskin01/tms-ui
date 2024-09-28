@@ -4,8 +4,8 @@ import useTeacherQuery from "../Hooks/useTeacherQuery";
 import { Trash, UserPen } from "lucide-react";
 import { toast } from "sonner";
 import { Navigate, useNavigate } from "react-router-dom";
-
 import useDesignationQuery from "../Hooks/useDesignationQuery";
+
 
 const TeacherDetails = () => {
   const {
@@ -57,7 +57,7 @@ const TeacherDetails = () => {
   };
 
   return (
-    <div className="m-2 h-screen  ">
+    <div className="m-2 min-h-screen  ">
       <div>
         {" "}
         <p className="flex justify-center text-2xl p-4 m-2 text-blue-900 font-bold ">
