@@ -30,7 +30,7 @@ const useDesignationQuery = (url) => {
         console.log("Designation", data);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [url,data]);
 
   // ------------------------>
 
