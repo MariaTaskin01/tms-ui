@@ -48,10 +48,10 @@ const Teacher = () => {
   const handleSee = () => {
     navigate("/TeacherDetails");
   };
-  const handleSelect = (e) =>{
-    const selectedDesignation = e
+  const handleSelect = (e) => {
+    const selectedDesignation = e;
     console.log("Selected Designation:", selectedDesignation);
-  }
+  };
 
   return (
     <div className=" min-h-screen flex  align-items justify-center  bg-slate-50">
@@ -129,19 +129,21 @@ const Teacher = () => {
           ></input> */}
 
           <div>
-           
-               <select onChange={(e)=>setDesignation(e.target.value)} className="select select-primary border m-2 w-full p-2  rounded-md">
-                <option disabled selected> Select Designation </option>
-                {  data.map((item,index)=>(
-               <option value={item.desigCode} key={index}>
-                 {item.desigDesc}
-               </option>
-               ))
-               }
-             </select>
-            
-             
-            
+            <select
+              value={designation}
+              onChange={(e) => setDesignation(e.target.value)}
+              className="select select-primary border m-2 w-full p-2  rounded-md"
+            >
+              <option disabled selected>
+                {" "}
+                Select Designation{" "}
+              </option>
+              {data.map((item, index) => (
+                <option value={item.desigCode} key={index}>
+                  {item.desigDesc}
+                </option>
+              ))}
+            </select>
           </div>
 
           <div className="col-span-4 flex justify-center mt-4 gap-6 ">
