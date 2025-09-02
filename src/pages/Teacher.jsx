@@ -31,18 +31,20 @@ const Teacher = () => {
       designationCode: designation,
       teacherName: name,
     };
-    setId("");
-    setCompany("");
-    setBCode("");
-    setFCode("");
-    setPCode("");
-    setCCode("");
-    setDesignation("");
-    setName("");
 
-    // console.log("Teacher Details",teacherInfo);
-
+    try{
     postTeacher(teacherInfo);
+    // setId("");
+    // setCompany("");
+    // setBCode("");
+    // setFCode("");
+    // setPCode("");
+    // setCCode("");
+    // setDesignation("");
+    // setName("");
+    }catch(error){
+      console.log(error);
+    }
   };
 
   const handleSee = () => {
